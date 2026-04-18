@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mammas Saj — Saj, Kebab & Shawarma i Göteborg</title>
+  <link rel="icon" type="image/webp" href="assets/logo-small.webp" />
+  <meta name="description" content="Mammas Saj i Göteborg — saj, kebab, shawarma, manakish, burgare och pizza. Öppet varje dag 10:00–21:00. Deltavägen 6, Göteborg. Beställ online via Qopla." />
+  <meta name="keywords" content="Mammas Saj, saj Göteborg, kebab Göteborg, shawarma Göteborg, manakish, mellanöstern restaurang, Deltavägen, Hisingen" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#D97A2C" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mammas Saj — Saj, Kebab & Shawarma i Göteborg" />
+  <meta property="og:description" content="Äkta smaker från Mellanöstern i hjärtat av Göteborg. Saj, kebab, shawarma, manakish och mer. Beställ online via Qopla." />
+  <meta property="og:image" content="https://mammassaj.se/assets/logo.webp" />
+  <meta property="og:url" content="https://mammassaj.se" />
+  <meta property="og:type" content="restaurant" />
+  <meta property="og:locale" content="sv_SE" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mammas Saj — Saj, Kebab & Shawarma i Göteborg" />
+  <meta name="twitter:description" content="Äkta smaker från Mellanöstern. Beställ online via Qopla." />
+  <meta name="twitter:image" content="https://mammassaj.se/assets/logo.webp" />
+
+  <link rel="canonical" href="https://mammassaj.se" />
+
+  <!-- Restaurant JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Mammas Saj",
+    "image": "https://mammassaj.se/assets/logo.webp",
+    "logo": "https://mammassaj.se/assets/logo.webp",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Deltavägen 6",
+      "addressLocality": "Göteborg",
+      "postalCode": "41730",
+      "addressCountry": "SE"
+    },
+    "url": "https://mammassaj.se",
+    "servesCuisine": ["Middle Eastern", "Mellanöstern", "Kebab", "Shawarma", "Manakish", "Pizza", "Burgers"],
+    "priceRange": "$$",
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "10:00", "closes": "21:00" }
+    ],
+    "acceptsReservations": "False",
+    "sameAs": [
+      "https://qopla.com/restaurant/mamma-saj/q7PEaEAkGe/order"
+    ]
+  }
+  </script>
+
+  <link rel="preload" as="image" href="assets/logo.webp" fetchpriority="high" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── TOKENS ─── */
+    :root {
+      --black:   #0A0806;
+      --char:    #141010;
+      --surface: #1C1614;
+      --border:  rgba(255,255,255,0.08);
+      --amber:   #D97A2C;
+      --amber2:  #F4A347;
+      --amber-d: #A65918;
+      --white:   #F5F0E6;
+      --cream:   rgba(245,240,230,0.75);
+      --muted:   #a69886;
+      --font-head: 'Bebas Neue', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* ─── RESET ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    html, body { overflow-x: hidden; }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── GRAIN OVERLAY ─── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 clamp(20px,5vw,60px);
+      transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+    }
+    nav.scrolled {
+      background: rgba(10, 8, 6, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--white);
+    }
+    .nav-logo img {
+      width: 44px; height: 44px;
+      object-fit: contain;
+    }
+    .nav-logo-text {
+      font-family: var(--font-head);
+      font-size: 1.55rem;
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+    .nav-logo-text span { color: var(--amber); }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.7);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a.active { color: var(--amber); }
+    .nav-cta {
+      background: var(--amber);
+      color: var(--white);
+      padding: 10px 22px;
+      border-radius: 2px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: var(--amber2); transform: translateY(-1px); }
+
+    /* ─── HAMBURGER ─── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10,8,6,0.97);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      opacity: 0;
+      transform: translateX(100%);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .mobile-menu.open { opacity: 1; transform: translateX(0); }
+    .mobile-menu a {
+      font-family: var(--font-head);
+      font-size: 3rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--amber); }
+    .mobile-menu .mobile-cta {
+      background: var(--amber);
+      color: var(--white);
+      padding: 14px 36px;
+      border-radius: 2px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ─── HERO (full-bleed) ─── */
+    .hero {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      height: 100vh;
+      min-height: 640px;
+      margin: 0;
+      padding: 0 0 clamp(60px, 8vh, 100px) 0;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-image {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+      background: #0A0806;
+    }
+    .hero-image video,
+    .hero-image img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      filter: brightness(0.78) contrast(1.05) saturate(1.05);
+      display: block;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 70% at 60% 90%, rgba(217, 122, 44, 0.22) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 20% 20%, rgba(244, 163, 71, 0.08) 0%, transparent 55%),
+        linear-gradient(160deg, rgba(10, 8, 6, 0.75) 0%, rgba(28, 18, 10, 0.55) 45%, rgba(10, 8, 6, 0.85) 100%);
+      z-index: 1;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 clamp(20px,5vw,60px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: flex-end;
+      gap: 40px;
+    }
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--amber);
+    }
+    .hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(4.5rem, 10vw, 9.5rem);
+      line-height: 0.9;
+      letter-spacing: 0.01em;
+      color: var(--white);
+      text-transform: uppercase;
+      margin-bottom: 34px;
+    }
+    .hero h1 .outline {
+      -webkit-text-stroke: 2px var(--amber);
+      color: transparent;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--amber);
+      color: var(--white);
+      padding: 14px 32px;
+      border-radius: 2px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-primary:hover {
+      background: var(--amber2);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(217, 122, 44, 0.32);
+    }
+    .btn-primary svg {
+      width: 14px; height: 14px;
+      stroke: currentColor; stroke-width: 2;
+      fill: none; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .hero-sub {
+      font-size: 0.9rem;
+      color: rgba(255, 250, 240, 0.7);
+      letter-spacing: 0.06em;
+    }
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 18px;
+      padding-bottom: 8px;
+    }
+    .hero-tag {
+      background: rgba(255, 250, 240, 0.05);
+      border: 1px solid rgba(255, 250, 240, 0.12);
+      border-radius: 2px;
+      padding: 12px 20px;
+      font-size: 0.76rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 250, 240, 0.7);
+      text-align: right;
+    }
+    .hero-tag strong {
+      display: block;
+      font-family: var(--font-head);
+      font-size: 1.85rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      line-height: 1;
+      margin-top: 4px;
+      font-weight: 400;
+    }
+    .hero-tag .amber { color: var(--amber); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      z-index: 2;
+    }
+    .hero-scroll span {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255, 250, 240, 0.5);
+    }
+    .scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, var(--amber), transparent);
+      animation: scrollPulse 2.2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50%      { opacity: 1; transform: scaleY(1.1); }
+    }
+
+    /* ─── TICKER ─── */
+    .ticker {
+      background: var(--amber);
+      overflow: hidden;
+      padding: 15px 0;
+      position: relative;
+      z-index: 1;
+    }
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: tickerScroll 26s linear infinite;
+    }
+    .ticker-track:hover { animation-play-state: paused; }
+    .ticker-group {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+    }
+    @keyframes tickerScroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-25%); }
+    }
+    .ticker-item {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      white-space: nowrap;
+      padding: 0 28px;
+      font-family: var(--font-head);
+      font-size: 1.18rem;
+      letter-spacing: 0.14em;
+      color: var(--white);
+    }
+    .ticker-dot {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(255, 250, 240, 0.5);
+      margin: 0 18px;
+      flex-shrink: 0;
+    }
+
+    /* ─── ABOUT ─── */
+    .about {
+      padding: clamp(80px,10vw,140px) clamp(20px,5vw,60px);
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px,6vw,100px);
+      align-items: center;
+    }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-label::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--amber);
+      flex-shrink: 0;
+    }
+    .about h2 {
+      font-family: var(--font-head);
+      font-size: clamp(3rem, 5.5vw, 5.5rem);
+      line-height: 0.95;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 28px;
+    }
+    .about h2 em { font-style: normal; color: var(--amber); }
+    .about p {
+      color: rgba(255, 250, 240, 0.78);
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 440px;
+      margin-bottom: 16px;
+    }
+    .about-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 36px;
+      padding-top: 36px;
+      border-top: 1px solid var(--border);
+    }
+    .stat-num {
+      font-family: var(--font-head);
+      font-size: 2.8rem;
+      line-height: 1;
+      color: var(--white);
+      letter-spacing: 0.02em;
+    }
+    .stat-num span { color: var(--amber); }
+    .stat-lbl {
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* About visual: use logo as signature emblem on circular amber glow */
+    .about-right { position: relative; }
+    .about-visual {
+      position: relative;
+      aspect-ratio: 4/5;
+      border-radius: 4px;
+      overflow: hidden;
+      background: radial-gradient(ellipse 85% 70% at 50% 40%, rgba(217, 122, 44, 0.22) 0%, rgba(26, 18, 12, 0.96) 60%, var(--char) 100%);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-visual::before {
+      /* Warm embers radial */
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 28% 22%, rgba(244, 163, 71, 0.16) 0%, transparent 38%),
+        radial-gradient(circle at 78% 78%, rgba(217, 122, 44, 0.20) 0%, transparent 44%);
+      pointer-events: none;
+    }
+    .about-visual::after {
+      /* Diagonal ornamental lines */
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(135deg, transparent 0%, transparent 48%, rgba(217, 122, 44, 0.10) 50%, transparent 52%),
+        linear-gradient(45deg, transparent 0%, transparent 48%, rgba(217, 122, 44, 0.06) 50%, transparent 52%);
+      pointer-events: none;
+    }
+    .about-visual img {
+      position: relative;
+      z-index: 1;
+      width: 82%;
+      max-width: 440px;
+      height: auto;
+      filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.6));
+      transform: scale(0.94);
+      opacity: 0;
+      transition: transform 1.4s var(--ease-out), opacity 1s var(--ease-out);
+    }
+    .about-visual.revealed img {
+      transform: scale(1);
+      opacity: 1;
+    }
+    .about-img-badge {
+      position: absolute;
+      bottom: 24px;
+      left: -24px;
+      background: var(--amber);
+      color: var(--white);
+      padding: 14px 22px;
+      border-radius: 2px;
+      font-family: var(--font-head);
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      box-shadow: 0 12px 40px rgba(217, 122, 44, 0.4);
+      z-index: 2;
+    }
+    .about-img-line {
+      position: absolute;
+      top: -24px;
+      right: -24px;
+      width: 80px;
+      height: 80px;
+      border-top: 2px solid var(--amber);
+      border-right: 2px solid var(--amber);
+      z-index: 2;
+    }
+
+    /* ─── MENY CATEGORIES ─── */
+    .meny-section {
+      background: var(--char);
+      border-top: 1px solid var(--border);
+      padding: clamp(80px,10vw,120px) clamp(20px,5vw,60px);
+    }
+    .meny-inner { max-width: 1400px; margin: 0 auto; }
+    .meny-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 52px;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .meny-head h2 {
+      font-family: var(--font-head);
+      font-size: clamp(3rem,5.5vw,5.5rem);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 0.95;
+    }
+    .meny-head h2 span { color: var(--amber); }
+    .meny-head p {
+      color: rgba(255, 250, 240, 0.6);
+      max-width: 420px;
+      font-size: 0.95rem;
+    }
+
+    .meny-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: auto;
+      gap: 20px;
+    }
+    .meny-card {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: transform 0.3s var(--ease-out), border-color 0.3s ease;
+    }
+    .meny-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(217, 122, 44, 0.32);
+    }
+    /* 4-column grid choreography:
+       Row 1: [wide span 2][card2][card3]
+       Row 2: [card4][card5][wide-tail span 2]
+       — balanced bookend wides, no orphans. */
+    .meny-card.wide      { grid-column: span 2; }
+    .meny-card.wide-tail { grid-column: span 2; }
+    .meny-card-img {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      position: relative;
+    }
+    .meny-card.wide .meny-card-img,
+    .meny-card.wide-tail .meny-card-img { aspect-ratio: 16/9; }
+    .meny-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.92) saturate(1.08);
+      transition: transform 0.7s var(--ease-out), filter 0.3s ease;
+    }
+    .meny-card:hover .meny-card-img img {
+      transform: scale(1.05);
+      filter: brightness(1) saturate(1.1);
+    }
+    .meny-card-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(10, 8, 6, 0.75) 100%);
+      pointer-events: none;
+    }
+    .meny-card-body {
+      padding: 22px 24px 26px;
+    }
+    .meny-card-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 10px;
+    }
+    .meny-card-kicker::before {
+      content: '';
+      width: 14px;
+      height: 1px;
+      background: var(--amber);
+    }
+    .meny-card h3 {
+      font-family: var(--font-head);
+      font-size: 1.7rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+    .meny-card.wide h3,
+    .meny-card.wide-tail h3 { font-size: 2.2rem; }
+    .meny-card p {
+      color: rgba(255, 250, 240, 0.68);
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+    .meny-order-bar {
+      margin-top: 52px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+    .meny-order-bar p {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    /* ─── HITTA OSS ─── */
+    .hitta {
+      background: var(--black);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: clamp(80px,10vw,120px) clamp(20px,5vw,60px);
+    }
+    .hitta-inner { max-width: 1400px; margin: 0 auto; }
+    .hitta-head {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .hitta-head .section-label { justify-content: center; margin-bottom: 16px; }
+    .hitta-head h2 {
+      font-family: var(--font-head);
+      font-size: clamp(3rem,6vw,6rem);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 0.95;
+    }
+    .hitta-head h2 span { color: var(--amber); }
+
+    .hitta-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .hitta-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: clamp(28px,3vw,44px);
+      position: relative;
+      overflow: hidden;
+    }
+    .hitta-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 60%;
+      background: linear-gradient(to bottom, var(--amber), transparent);
+    }
+    .hitta-card-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(217, 122, 44, 0.12);
+      border: 1px solid rgba(217, 122, 44, 0.25);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .hitta-card-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--amber);
+    }
+    .hitta-card h3 {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 16px;
+    }
+    .hitta-card address {
+      font-style: normal;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+    .hitta-card .hitta-city {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255, 250, 240, 0.2);
+      color: var(--white);
+      padding: 10px 20px;
+      border-radius: 2px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .btn-ghost:hover {
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+    .hours-list { display: flex; flex-direction: column; gap: 0; }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.92rem;
+    }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-day { color: rgba(255, 250, 240, 0.75); }
+    .hours-time { color: var(--white); font-weight: 500; }
+    .hours-open {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #4ade80;
+      font-weight: 600;
+    }
+    .hours-open::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #4ade80;
+      animation: pulse-green 2s ease infinite;
+    }
+    @keyframes pulse-green {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74,222,128,0.4); }
+      50%      { opacity: 0.8; box-shadow: 0 0 0 6px transparent; }
+    }
+
+    .hitta-map {
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-bottom: 24px;
+      background: var(--surface);
+    }
+    .hitta-map iframe {
+      width: 100%;
+      height: 400px;
+      border: 0;
+      display: block;
+      filter: grayscale(0.15) brightness(0.95);
+    }
+
+    .hitta-cta {
+      background: var(--amber);
+      border-radius: 4px;
+      padding: 28px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .hitta-cta-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .hitta-cta-left svg {
+      width: 22px;
+      height: 22px;
+      fill: rgba(255, 250, 240, 0.85);
+      flex-shrink: 0;
+    }
+    .hitta-cta-label {
+      font-size: 0.74rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 250, 240, 0.9);
+      margin-bottom: 2px;
+    }
+    .hitta-cta-value {
+      font-size: 1.08rem;
+      font-weight: 500;
+      color: var(--white);
+    }
+    .btn-white {
+      background: var(--white);
+      color: var(--amber-d);
+      padding: 12px 26px;
+      border-radius: 2px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: transform 0.15s, box-shadow 0.2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .btn-white:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
+
+    /* ─── GALLERI ─── */
+    .galleri {
+      padding: clamp(80px,10vw,120px) 0;
+      overflow: hidden;
+    }
+    .galleri-head {
+      text-align: center;
+      margin-bottom: 52px;
+      padding: 0 clamp(20px,5vw,60px);
+    }
+    .galleri-head .section-label { justify-content: center; margin-bottom: 16px; }
+    .galleri-head h2 {
+      font-family: var(--font-head);
+      font-size: clamp(3rem,6vw,6rem);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 0.95;
+    }
+    .galleri-head h2 span { color: var(--amber); }
+    .galleri-strip {
+      display: flex;
+      gap: 16px;
+      width: max-content;
+      animation: galleryScroll 38s linear infinite;
+    }
+    .galleri-strip:hover { animation-play-state: paused; }
+    @keyframes galleryScroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .galleri-img {
+      width: 340px;
+      height: 260px;
+      border-radius: 4px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: var(--surface);
+      position: relative;
+    }
+    .galleri-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s var(--ease-out);
+    }
+    .galleri-img:hover img { transform: scale(1.06); }
+    .galleri-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid var(--border);
+      padding: clamp(52px,6vw,80px) clamp(20px,5vw,60px) 32px;
+    }
+    .footer-inner { max-width: 1400px; margin: 0 auto; }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+      padding-bottom: 52px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .footer-brand img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+    }
+    .footer-logo {
+      font-family: var(--font-head);
+      font-size: 2rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      display: block;
+    }
+    .footer-logo span { color: var(--amber); }
+    .footer-brand p {
+      font-size: 0.9rem;
+      color: rgba(255, 250, 240, 0.62);
+      line-height: 1.8;
+      max-width: 320px;
+    }
+    .footer-col h4 {
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255, 250, 240, 0.6);
+      margin-bottom: 22px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li {
+      font-size: 0.9rem;
+      color: rgba(255, 250, 240, 0.72);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .footer-col li svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--amber);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .footer-col a { color: inherit; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--amber); }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: rgba(255, 250, 240, 0.44);
+      letter-spacing: 0.06em;
+    }
+    .footer-bottom a { color: rgba(255, 250, 240, 0.6); }
+    .footer-bottom a:hover { color: var(--amber); }
+
+    /* ─── REVEAL ANIMATIONS ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* Hero load-in cascade */
+    @keyframes heroIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-eyebrow,
+    .hero h1,
+    .hero-actions,
+    .hero-right > .hero-tag {
+      opacity: 0;
+      animation: heroIn 0.9s var(--ease-out) both;
+    }
+    .hero-eyebrow   { animation-delay: 0.35s; }
+    .hero h1        { animation-delay: 0.55s; }
+    .hero-actions   { animation-delay: 0.85s; }
+    .hero-right > .hero-tag:nth-child(1) { animation-delay: 0.95s; }
+    .hero-right > .hero-tag:nth-child(2) { animation-delay: 1.10s; }
+    .hero-right > .hero-tag:nth-child(3) { animation-delay: 1.25s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1000px) {
+      .meny-grid { grid-template-columns: repeat(2, 1fr); }
+      .meny-card.wide,
+      .meny-card.wide-tail { grid-column: span 2; }
+    }
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .about { grid-template-columns: 1fr; }
+      .about-right { order: -1; }
+      .about-visual { aspect-ratio: 1/1; max-width: 480px; margin: 0 auto; }
+      .about-img-badge { left: 8px; }
+      .about-img-line { display: none; }
+      .hitta-cards { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu { display: flex; }
+      .nav-logo-text { font-size: 1.25rem; }
+      .nav-logo img { width: 36px; height: 36px; }
+      .hero h1 { font-size: clamp(3.5rem, 13vw, 5.5rem); }
+      .hitta-cta { flex-direction: column; align-items: flex-start; }
+      .meny-grid { grid-template-columns: 1fr; }
+      .meny-card.wide,
+      .meny-card.wide-tail { grid-column: span 1; }
+      .meny-card.wide .meny-card-img,
+      .meny-card.wide-tail .meny-card-img { aspect-ratio: 4/3; }
+      .meny-card.wide h3,
+      .meny-card.wide-tail h3 { font-size: 1.7rem; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    }
+
+    /* ─── FOCUS STATES ─── */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--amber);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    /* ─── REDUCED MOTION ─── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+      .hero-image video { display: none; }
+      .hero-image img { display: block; }
+      .hero-eyebrow, .hero h1, .hero-actions, .hero-right > .hero-tag {
+        opacity: 1; transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Mammas Saj — hem">
+        <img src="assets/logo-small.webp" alt="Mammas Saj logotyp" width="44" height="44" />
+        <span class="nav-logo-text">MAMMAS <span>SAJ</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#meny">Meny</a></li>
+        <li><a href="#om-oss">Om oss</a></li>
+        <li><a href="#hitta">Hitta oss</a></li>
+      </ul>
+      <a href="https://qopla.com/restaurant/mamma-saj/q7PEaEAkGe/order" target="_blank" rel="noopener" class="nav-cta">Beställ nu</a>
+      <button class="hamburger" id="hamburger" aria-label="Öppna meny" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <a href="#meny">Meny</a>
+    <a href="#om-oss">Om oss</a>
+    <a href="#hitta">Hitta oss</a>
+    <a href="https://qopla.com/restaurant/mamma-saj/q7PEaEAkGe/order" target="_blank" rel="noopener" class="mobile-cta">Beställ nu</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-image">
+      <video autoplay muted loop playsinline preload="auto"
+             aria-label="Saj-bröd bakas över glödande kol">
+        <source src="assets/hero.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <p class="hero-eyebrow">Göteborg · Mellanöstern</p>
+        <h1>SMAKEN AV<br><span class="outline">MAMMA</span> SAJ</h1>
+        <div class="hero-actions">
+          <a href="https://qopla.com/restaurant/mamma-saj/q7PEaEAkGe/order" target="_blank" rel="noopener" class="btn-primary">
+            BESTÄLL ONLINE
+            <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+          <span class="hero-sub">Deltavägen 6 · Göteborg</span>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-tag">
+          Öppet idag
+          <strong>10:00–21:00</strong>
+        </div>
+        <div class="hero-tag">
+          Adress
+          <strong>Göteborg</strong>
+        </div>
+        <div class="hero-tag">
+          Saj · Kebab
+          <strong>&amp; Shawarma</strong>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <span>Scrolla</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <div class="ticker-group">
+        <span class="ticker-item">MAMMAS SAJ</span><span class="ticker-dot"></span>
+        <span class="ticker-item">SAJ</span><span class="ticker-dot"></span>
+        <span class="ticker-item">KEBAB</span><span class="ticker-dot"></span>
+        <span class="ticker-item">SHAWARMA</span><span class="ticker-dot"></span>
+        <span class="ticker-item">MANAKISH</span><span class="ticker-dot"></span>
+        <span class="ticker-item">GRILL</span><span class="ticker-dot"></span>
+        <span class="ticker-item">GÖTEBORG</span><span class="ticker-dot"></span>
+      </div>
+      <div class="ticker-group">
+        <span class="ticker-item">MAMMAS SAJ</span><span class="ticker-dot"></span>
+        <span class="ticker-item">SAJ</span><span class="ticker-dot"></span>
+        <span class="ticker-item">KEBAB</span><span class="ticker-dot"></span>
+        <span class="ticker-item">SHAWARMA</span><span class="ticker-dot"></span>
+        <span class="ticker-item">MANAKISH</span><span class="ticker-dot"></span>
+        <span class="ticker-item">GRILL</span><span class="ticker-dot"></span>
+        <span class="ticker-item">GÖTEBORG</span><span class="ticker-dot"></span>
+      </div>
+      <div class="ticker-group">
+        <span class="ticker-item">MAMMAS SAJ</span><span class="ticker-dot"></span>
+        <span class="ticker-item">SAJ</span><span class="ticker-dot"></span>
+        <span class="ticker-item">KEBAB</span><span class="ticker-dot"></span>
+        <span class="ticker-item">SHAWARMA</span><span class="ticker-dot"></span>
+        <span class="ticker-item">MANAKISH</span><span class="ticker-dot"></span>
+        <span class="ticker-item">GRILL</span><span class="ticker-dot"></span>
+        <span class="ticker-item">GÖTEBORG</span><span class="ticker-dot"></span>
+      </div>
+      <div class="ticker-group">
+        <span class="ticker-item">MAMMAS SAJ</span><span class="ticker-dot"></span>
+        <span class="ticker-item">SAJ</span><span class="ticker-dot"></span>
+        <span class="ticker-item">KEBAB</span><span class="ticker-dot"></span>
+        <span class="ticker-item">SHAWARMA</span><span class="ticker-dot"></span>
+        <span class="ticker-item">MANAKISH</span><span class="ticker-dot"></span>
+        <span class="ticker-item">GRILL</span><span class="ticker-dot"></span>
+        <span class="ticker-item">GÖTEBORG</span><span class="ticker-dot"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="om-oss">
+    <div class="about-left reveal">
+      <p class="section-label">Om oss</p>
+      <h2>LAGAT<br>MED <em>KÄRLEK.</em></h2>
+      <p>Hos oss bakas saj på stenen, shawarman snurrar långsamt och kebaben grillas över öppen låga — precis som hemma. Familjerecept, färska råvaror och en värme som känns direkt i första tuggan.</p>
+      <p>Kom förbi mitt på dagen, kvällen eller hämta hem via Qopla. Vi finns på Deltavägen och är öppna varje dag från tio.</p>
+      <div class="about-stats">
+        <div class="stat-item">
+          <div class="stat-num">100<span>%</span></div>
+          <div class="stat-lbl">Färska råvaror</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">7<span>/7</span></div>
+          <div class="stat-lbl">Dagar i veckan</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">21<span>:00</span></div>
+          <div class="stat-lbl">Öppet till</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-right reveal reveal-delay-2">
+      <div class="about-img-line"></div>
+      <div class="about-visual" id="about-visual">
+        <img src="assets/logo.webp" alt="Mammas Saj signatur — familjekök i Göteborg" loading="lazy" />
+      </div>
+      <div class="about-img-badge">#MammasSaj</div>
+    </div>
+  </section>
+
+  <!-- MENY CATEGORIES -->
+  <section class="meny-section" id="meny">
+    <div class="meny-inner">
+      <div class="meny-head reveal">
+        <h2>MENY<br><span>KATEGORIER</span></h2>
+        <p>Ett smakprov på det vi serverar. Hela menyn med priser och beställning finns i Qopla.</p>
+      </div>
+
+      <div class="meny-grid">
+        <!-- WIDE FEATURED -->
+        <article class="meny-card wide reveal">
+          <div class="meny-card-img">
+            <img src="https://images.unsplash.com/photo-1561651823-34feb02250e4?w=1200&h=700&fit=crop" alt="Saj-rulle med kyckling och falafel" loading="lazy" />
+          </div>
+          <div class="meny-card-body">
+            <span class="meny-card-kicker">Signatur</span>
+            <h3>Saj &amp; Manakish</h3>
+            <p>Tunt bröd bakat på stenen — klassisk zaatar, ost, ädelmanakish. Rakt ur ugnen och aldrig tråkigt.</p>
+          </div>
+        </article>
+
+        <article class="meny-card reveal reveal-delay-1">
+          <div class="meny-card-img">
+            <img src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=700&h=520&fit=crop" alt="Kebab och shawarma" loading="lazy" />
+          </div>
+          <div class="meny-card-body">
+            <span class="meny-card-kicker">Mest populära</span>
+            <h3>Kebab &amp; Shawarma</h3>
+            <p>Marinerat, grillat, serverat i saj eller på tallrik.</p>
+          </div>
+        </article>
+
+        <article class="meny-card reveal reveal-delay-1">
+          <div class="meny-card-img">
+            <img src="https://images.unsplash.com/photo-1617692855027-33b14f061079?w=700&h=520&fit=crop" alt="Grillad kyckling med saj" loading="lazy" />
+          </div>
+          <div class="meny-card-body">
+            <span class="meny-card-kicker">Grillen</span>
+            <h3>Grillad Kyckling</h3>
+            <p>Marinerad kycklingfilé — klassiskt och alltid saftigt.</p>
+          </div>
+        </article>
+
+        <article class="meny-card reveal reveal-delay-2">
+          <div class="meny-card-img">
+            <img src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?w=700&h=520&fit=crop" alt="Saftig burgare med cheddar" loading="lazy" />
+          </div>
+          <div class="meny-card-body">
+            <span class="meny-card-kicker">Burgare</span>
+            <h3>Burgers</h3>
+            <p>Crispy Original, Smashed Cheese och fler — 7 val.</p>
+          </div>
+        </article>
+
+        <article class="meny-card reveal reveal-delay-2">
+          <div class="meny-card-img">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=700&h=520&fit=crop" alt="Stenugnsbakad pizza" loading="lazy" />
+          </div>
+          <div class="meny-card-body">
+            <span class="meny-card-kicker">Pizza</span>
+            <h3>Pizza</h3>
+            <p>Margherita, pepperoni, kebabpizza &amp; fler.</p>
+          </div>
+        </article>
+
+        <article class="meny-card wide-tail reveal reveal-delay-3">
+          <div class="meny-card-img">
+            <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=1200&h=700&fit=crop" alt="Rostad baguette med tillbehör och såser på mörk yta" loading="lazy" />
+          </div>
+          <div class="meny-card-body">
+            <span class="meny-card-kicker">Lunch &amp; kväll</span>
+            <h3>Baguetter &amp; Tillbehör</h3>
+            <p>Kyckling-, köttfärs- och korvbaguetter, pommes, friterade bitar och dryck — det lilla extra som gör måltiden komplett.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="meny-order-bar">
+        <p>Hela menyn och alla priser finns i Qopla.</p>
+        <a href="https://qopla.com/restaurant/mamma-saj/q7PEaEAkGe/order" target="_blank" rel="noopener" class="btn-primary">
+          SE HELA MENYN
+          <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HITTA OSS -->
+  <section class="hitta" id="hitta">
+    <div class="hitta-inner">
+      <div class="hitta-head reveal">
+        <p class="section-label">Välkommen</p>
+        <h2>HITTA <span>OSS</span></h2>
+      </div>
+      <div class="hitta-cards">
+        <div class="hitta-card reveal reveal-delay-1">
+          <div class="hitta-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <h3>Göteborg</h3>
+          <address>Deltavägen 6</address>
+          <p class="hitta-city">417 30 Göteborg, Sverige</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Deltav%C3%A4gen+6+G%C3%B6teborg" target="_blank" rel="noopener" class="btn-ghost">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+            Hitta hit
+          </a>
+        </div>
+        <div class="hitta-card reveal reveal-delay-2">
+          <div class="hitta-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+          </div>
+          <h3>Öppettider</h3>
+          <div class="hours-list">
+            <div class="hours-row">
+              <span class="hours-day">Måndag – Söndag</span>
+              <span class="hours-time">10:00 – 21:00</span>
+            </div>
+          </div>
+          <div style="margin-top:24px;">
+            <span class="hours-open" id="hours-open">Öppet nu</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hitta-map reveal">
+        <iframe
+          src="https://maps.google.com/maps?q=Deltav%C3%A4gen%206%2C%20417%2030%20G%C3%B6teborg&hl=sv&z=15&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Karta över Mammas Saj — Deltavägen 6, Göteborg"></iframe>
+      </div>
+
+      <div class="hitta-cta reveal">
+        <div class="hitta-cta-left">
+          <svg viewBox="0 0 24 24"><path d="M3 4h18c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 4l9 5 9-5v10H3V8zm0-2l9 5 9-5H3z"/></svg>
+          <div>
+            <div class="hitta-cta-label">Hungrig?</div>
+            <div class="hitta-cta-value">Beställ online för upphämtning eller hemleverans</div>
+          </div>
+        </div>
+        <a href="https://qopla.com/restaurant/mamma-saj/q7PEaEAkGe/order" target="_blank" rel="noopener" class="btn-white">Beställ via Qopla</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="assets/logo-small.webp" alt="Mammas Saj logotyp" width="54" height="54" />
+          <span class="footer-logo">MAMMAS <span>SAJ</span></span>
+          <p>Familjeägt kök i Göteborg som serverar äkta smaker från Mellanöstern — saj, kebab, shawarma, manakish, burgare och pizza.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <ul>
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              <a href="https://www.google.com/maps/search/?api=1&query=Deltav%C3%A4gen+6+G%C3%B6teborg" target="_blank" rel="noopener">Deltavägen 6, Göteborg</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <a href="https://qopla.com/restaurant/mamma-saj/q7PEaEAkGe/order" target="_blank" rel="noopener">Beställ via Qopla</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Öppettider</h4>
+          <ul>
+            <li>Mån – Sön: 10:00 – 21:00</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="footer-year">2026</span> Mammas Saj · Göteborg</span>
+        <span>Powered by <a href="https://synsnumedia.se/" target="_blank" rel="noopener">SynsNu</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ─── NAV SCROLL ───
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ─── HAMBURGER ───
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      mobileMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // ─── SCROLL REVEAL ───
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ─── ABOUT VISUAL REVEAL ───
+    const aboutVisual = document.getElementById('about-visual');
+    if (aboutVisual) {
+      const visObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            setTimeout(() => aboutVisual.classList.add('revealed'), 250);
+            visObs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      visObs.observe(aboutVisual);
+    }
+
+    // ─── ACTIVE NAV ON SCROLL ───
+    const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        navAnchors.forEach(a => a.classList.remove('active'));
+        if (e.target.id === 'hero') return;
+        const link = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+        if (link) link.classList.add('active');
+      });
+    }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+    ['hero', 'om-oss', 'meny', 'hitta'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) sectionObserver.observe(el);
+    });
+
+    // ─── OPEN / CLOSED INDICATOR ───
+    const openIndicator = document.getElementById('hours-open');
+    if (openIndicator) {
+      const now = new Date();
+      const h = now.getHours();
+      const isOpen = h >= 10 && h < 21;
+      if (!isOpen) {
+        openIndicator.textContent = 'Stängt nu';
+        openIndicator.style.color = '#f87171';
+        openIndicator.style.filter = 'hue-rotate(-120deg)';
+      }
+    }
+
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
