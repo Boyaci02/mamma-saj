@@ -1,8 +1,8 @@
 # Mammas Saj
 
-> Smaken av mamma — saj, kebab, shawarma, manakish, burgare och pizza i Göteborg. Öppet varje dag 10:00–21:00.
+> Smaken av mamma — saj, kebab, shawarma, manakish, burgare och pizza i Göteborg. Öppet varje dag 11:00–03:00.
 
-**Deltavägen 6 · 417 30 Göteborg · Öppet alla dagar 10:00 – 21:00**
+**Deltavägen 6 · 417 30 Göteborg · Öppet alla dagar 11:00 – 03:00**
 
 ---
 
@@ -15,7 +15,7 @@ Göteborg · Mellanöstern
 - [Beställ online](https://qopla.com/restaurant/mamma-saj/q7PEaEAkGe/order)
 - Deltavägen 6 · Göteborg
 
-Öppet idag 10:00–21:00 · Göteborg · Saj · Kebab & Shawarma
+Öppet idag 11:00–03:00 · Göteborg · Saj · Kebab & Shawarma
 
 ---
 
@@ -27,7 +27,7 @@ Kom förbi mitt på dagen, kvällen eller hämta hem via Qopla. Vi finns på Del
 
 - 100% färska råvaror
 - 7/7 dagar i veckan
-- Öppet till 21:00
+- Öppet till 03:00
 
 ---
 
@@ -76,7 +76,7 @@ Deltavägen 6
 
 | Dag | Tid |
 |-----|-----|
-| Måndag – Söndag | 10:00 – 21:00 |
+| Alla dagar | 11:00 – 03:00 |
 
 **Hungrig?** Beställ online för upphämtning eller hemleverans via [Qopla](https://qopla.com/restaurant/mamma-saj/q7PEaEAkGe/order).
 

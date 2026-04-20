@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mammas Saj — Saj, Kebab & Shawarma i Göteborg</title>
   <link rel="icon" type="image/webp" href="assets/logo-small.webp" />
-  <meta name="description" content="Mammas Saj i Göteborg — saj, kebab, shawarma, manakish, burgare och pizza. Öppet varje dag 10:00–21:00. Deltavägen 6, Göteborg. Beställ online via Qopla." />
+  <meta name="description" content="Mammas Saj i Göteborg — saj, kebab, shawarma, manakish, burgare och pizza. Öppet alla dagar 11:00–03:00. Deltavägen 6, Göteborg. Beställ online via Qopla." />
   <meta name="keywords" content="Mammas Saj, saj Göteborg, kebab Göteborg, shawarma Göteborg, manakish, mellanöstern restaurang, Deltavägen, Hisingen" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#D97A2C" />
@@ -45,7 +45,7 @@
     "openingHoursSpecification": [
       { "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-        "opens": "10:00", "closes": "21:00" }
+        "opens": "11:00", "closes": "03:00" }
     ],
     "acceptsReservations": "False",
     "sameAs": [
@@ -1223,7 +1223,7 @@
       <div class="hero-right">
         <div class="hero-tag">
           Öppet idag
-          <strong>10:00–21:00</strong>
+          <strong>11:00–03:00</strong>
         </div>
         <div class="hero-tag">
           Adress
@@ -1428,8 +1428,8 @@
           <h3>Öppettider</h3>
           <div class="hours-list">
             <div class="hours-row">
-              <span class="hours-day">Måndag – Söndag</span>
-              <span class="hours-time">10:00 – 21:00</span>
+              <span class="hours-day">Alla dagar</span>
+              <span class="hours-time">11:00 – 03:00</span>
             </div>
           </div>
           <div style="margin-top:24px;">
@@ -1476,6 +1476,10 @@
               <a href="https://www.google.com/maps/search/?api=1&query=Deltav%C3%A4gen+6+G%C3%B6teborg" target="_blank" rel="noopener">Deltavägen 6, Göteborg</a>
             </li>
             <li>
+              <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              <a href="tel:+46315085050">031-50 85 50</a>
+            </li>
+            <li>
               <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
               <a href="https://qopla.com/restaurant/mamma-saj/q7PEaEAkGe/order" target="_blank" rel="noopener">Beställ via Qopla</a>
             </li>
@@ -1484,7 +1488,7 @@
         <div class="footer-col">
           <h4>Öppettider</h4>
           <ul>
-            <li>Mån – Sön: 10:00 – 21:00</li>
+            <li>Alla dagar: 11:00 – 03:00</li>
           </ul>
         </div>
       </div>
@@ -1568,7 +1572,8 @@
     if (openIndicator) {
       const now = new Date();
       const h = now.getHours();
-      const isOpen = h >= 10 && h < 21;
+      // Overnight hours 11:00 – 03:00 — open when hour is >= 11 OR < 3
+      const isOpen = h >= 11 || h < 3;
       if (!isOpen) {
         openIndicator.textContent = 'Stängt nu';
         openIndicator.style.color = '#f87171';
