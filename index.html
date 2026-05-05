@@ -671,10 +671,10 @@
       border-color: rgba(217, 122, 44, 0.32);
       box-shadow: 0 6px 14px rgba(91, 58, 31, 0.06), 0 24px 48px rgba(91, 58, 31, 0.1);
     }
-    /* 4-column grid choreography:
-       Row 1: [wide span 2][card2][card3]
-       Row 2: [card4][card5][wide-tail span 2]
-       — balanced bookend wides, no orphans. */
+    /* 4-column grid choreography for 7 cards:
+       Row 1: [card1][card2][card3][card4]
+       Row 2: [card5][card6][wide-tail span 2]
+       — full row up top, balanced bookend wide on the closing row. */
     .meny-card.wide      { grid-column: span 2; }
     .meny-card.wide-tail { grid-column: span 2; }
     .meny-card-img {
@@ -776,7 +776,7 @@
 
     .hitta-cards {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
       margin-bottom: 24px;
     }
@@ -833,6 +833,18 @@
       color: var(--muted);
       margin-bottom: 24px;
     }
+    .hitta-card .hitta-phone {
+      display: block;
+      font-family: var(--font-head);
+      font-size: clamp(1.7rem, 2.4vw, 2.2rem);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      line-height: 1.05;
+      margin: 0 0 8px;
+      transition: color 0.2s ease;
+    }
+    .hitta-card .hitta-phone:hover { color: var(--amber); }
     .btn-ghost {
       display: inline-flex;
       align-items: center;
@@ -1114,6 +1126,7 @@
       .meny-grid { grid-template-columns: repeat(2, 1fr); }
       .meny-card.wide,
       .meny-card.wide-tail { grid-column: span 2; }
+      .hitta-cards { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 900px) {
       .hero-inner { grid-template-columns: 1fr; }
@@ -1323,26 +1336,26 @@
       </div>
 
       <div class="meny-grid">
-        <!-- WIDE FEATURED -->
-        <article class="meny-card wide reveal">
+        <!-- ROW 1 — fyra signaturkategorier -->
+        <article class="meny-card reveal">
           <div class="meny-card-img">
-            <img src="https://images.unsplash.com/photo-1561651823-34feb02250e4?w=1200&h=700&fit=crop" alt="Saj-rulle med kyckling och falafel" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1561651823-34feb02250e4?w=700&h=520&fit=crop" alt="Saj-rulle med kyckling och falafel" loading="lazy" />
           </div>
           <div class="meny-card-body">
             <span class="meny-card-kicker">Signatur</span>
-            <h3>Saj &amp; Manakish</h3>
-            <p>Tunt bröd bakat på stenen — klassisk zaatar, ost, ädelmanakish. Rakt ur ugnen och aldrig tråkigt.</p>
+            <h3>Saj</h3>
+            <p>Tunt bröd bakat på stenen, fylld med kebab, kyckling eller falafel — rullad direkt ur ugnen.</p>
           </div>
         </article>
 
         <article class="meny-card reveal reveal-delay-1">
           <div class="meny-card-img">
-            <img src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=700&h=520&fit=crop" alt="Kebab och shawarma" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=700&h=520&fit=crop" alt="Manakish med zaatar och ost" loading="lazy" />
           </div>
           <div class="meny-card-body">
-            <span class="meny-card-kicker">Mest populära</span>
-            <h3>Kebab &amp; Shawarma</h3>
-            <p>Marinerat, grillat, serverat i saj eller på tallrik.</p>
+            <span class="meny-card-kicker">Stenugn</span>
+            <h3>Manakish</h3>
+            <p>Klassisk zaatar, ost och ädelmanakish — bakat på stenen och alltid rakt ur ugnen.</p>
           </div>
         </article>
 
@@ -1359,6 +1372,18 @@
 
         <article class="meny-card reveal reveal-delay-2">
           <div class="meny-card-img">
+            <img src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=700&h=520&fit=crop" alt="Kebab och shawarma" loading="lazy" />
+          </div>
+          <div class="meny-card-body">
+            <span class="meny-card-kicker">Mest populära</span>
+            <h3>Kebab &amp; Shawarma</h3>
+            <p>Marinerat, grillat, serverat i saj eller på tallrik.</p>
+          </div>
+        </article>
+
+        <!-- ROW 2 — burgare, pizza, baguette wide -->
+        <article class="meny-card reveal reveal-delay-2">
+          <div class="meny-card-img">
             <img src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?w=700&h=520&fit=crop" alt="Saftig burgare med cheddar" loading="lazy" />
           </div>
           <div class="meny-card-body">
@@ -1368,7 +1393,7 @@
           </div>
         </article>
 
-        <article class="meny-card reveal reveal-delay-2">
+        <article class="meny-card reveal reveal-delay-3">
           <div class="meny-card-img">
             <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=700&h=520&fit=crop" alt="Stenugnsbakad pizza" loading="lazy" />
           </div>
@@ -1422,6 +1447,18 @@
           </a>
         </div>
         <div class="hitta-card reveal reveal-delay-2">
+          <div class="hitta-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </div>
+          <h3>Telefon</h3>
+          <a href="tel:+46315085050" class="hitta-phone">031-50 85 50</a>
+          <p class="hitta-city">Ring oss för bordsbokning eller frågor</p>
+          <a href="tel:+46315085050" class="btn-ghost">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            Ring nu
+          </a>
+        </div>
+        <div class="hitta-card reveal reveal-delay-3">
           <div class="hitta-card-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
           </div>
