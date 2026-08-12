@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mammas Saj — Adminportal</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/webp" href="/assets/logo-small.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#FAF8F5; --char:#F2EDE4; --surface:#FFFDF8; --border:rgba(91,58,31,.14);
+      --amber:#D97A2C; --amber-d:#A65918; --text:#1F1611; --text-muted:rgba(31,22,17,.68); --muted:#6B5E4D;
+      --green:#2E7D46; --red:#B3402A;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+    .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+    header{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:20}
+    .head-in{max-width:1080px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .logo{display:flex;align-items:center;gap:10px;font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.05em}
+    .logo img{width:38px;height:38px;border-radius:9px}
+    .logo b{color:var(--amber);font-weight:400}
+    .logo .tag{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.12em;color:var(--muted);border:1px solid var(--border);border-radius:999px;padding:3px 10px;margin-left:6px}
+    button,.btn{font:inherit;border:none;cursor:pointer;border-radius:999px;font-weight:600;font-size:14.5px;padding:10px 20px;transition:background .2s,transform .15s}
+    .btn-p{background:var(--amber);color:#fff}
+    .btn-p:hover{background:var(--amber-d)}
+    .btn-o{background:transparent;border:1.5px solid var(--border);color:var(--text)}
+    .btn-o:hover{border-color:var(--amber);color:var(--amber-d)}
+    .btn-danger{background:transparent;border:1.5px solid rgba(179,64,42,.4);color:var(--red)}
+    .btn-danger:hover{border-color:var(--red)}
+    button:disabled{opacity:.55;cursor:default}
+    /* login */
+    .login{max-width:400px;margin:12vh auto 0;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:36px;text-align:center}
+    .login h1{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:.04em;margin:12px 0 4px}
+    .login p{color:var(--text-muted);font-size:14.5px;margin-bottom:22px}
+    .login img{width:56px;height:56px;border-radius:14px}
+    input,textarea{font:inherit;width:100%;background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:12px 14px;color:var(--text)}
+    input:focus,textarea:focus{outline:none;border-color:var(--amber)}
+    .login input{text-align:center;letter-spacing:.08em;margin-bottom:14px}
+    /* list */
+    main{padding:36px 0 80px}
+    .list-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+    .list-head h1{font-family:'Bebas Neue',sans-serif;font-size:38px;letter-spacing:.03em}
+    .list-head p{color:var(--text-muted);font-size:14.5px}
+    .rows{display:flex;flex-direction:column;gap:12px}
+    .row{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:16px 20px;display:flex;align-items:center;gap:16px;cursor:pointer;transition:box-shadow .2s,transform .2s}
+    .row:hover{box-shadow:0 14px 30px -20px rgba(91,58,31,.4);transform:translateY(-2px)}
+    .row .thumb{width:64px;height:44px;border-radius:9px;object-fit:cover;background:var(--char);flex:0 0 auto}
+    .row .t{flex:1;min-width:0}
+    .row .t b{display:block;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .row .t span{font-size:13px;color:var(--muted)}
+    .pill{font-size:12px;font-weight:600;padding:4px 12px;border-radius:999px;flex:0 0 auto}
+    .pill.pub{background:rgba(46,125,70,.12);color:var(--green)}
+    .pill.draft{background:var(--char);color:var(--muted)}
+    .empty{background:var(--surface);border:1.5px dashed var(--border);border-radius:18px;padding:48px;text-align:center;color:var(--text-muted)}
+    /* editor */
+    .ed{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+    @media(max-width:920px){.ed{grid-template-columns:1fr}}
+    .panel{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:24px}
+    label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin:16px 0 6px;letter-spacing:.02em}
+    label:first-child{margin-top:0}
+    .hint{font-size:12.5px;color:var(--muted);margin-top:5px}
+    textarea#fBody{min-height:340px;font-size:15px;line-height:1.65;resize:vertical}
+    .toolbar{display:flex;gap:8px;margin:8px 0 8px;flex-wrap:wrap}
+    .toolbar button{background:var(--char);color:var(--text);font-size:13px;padding:7px 14px;border-radius:9px;font-weight:500}
+    .toolbar button:hover{background:#E8E0D2}
+    .heroprev{margin-top:10px;position:relative}
+    .heroprev img{width:100%;max-height:180px;object-fit:cover;border-radius:12px;display:block}
+    .heroprev button{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.55);color:#fff;font-size:12px;padding:5px 12px}
+    .preview{border:1px solid var(--border);border-radius:14px;background:#fff;padding:26px;min-height:340px}
+    .preview h2{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.02em;margin:22px 0 8px}
+    .preview h3{font-size:17px;font-weight:600;margin:18px 0 6px}
+    .preview p{color:var(--text-muted);font-size:15px;margin-bottom:13px}
+    .preview ul{margin:0 0 13px 20px;color:var(--text-muted);font-size:15px}
+    .preview img{max-width:100%;border-radius:10px}
+    .preview figure{margin:16px 0}
+    .preview figcaption{font-size:12.5px;color:var(--muted)}
+    .prev-title{font-family:'Bebas Neue',sans-serif;font-size:32px;line-height:1.05;letter-spacing:.02em;margin-bottom:6px}
+    .prev-meta{font-size:13px;color:var(--muted);margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+    .ed-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;align-items:center}
+    .status{font-size:13.5px;font-weight:600}
+    .status.ok{color:var(--green)} .status.err{color:var(--red)}
+    .backlink{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;font-size:14px;margin-bottom:18px}
+    .backlink:hover{color:var(--amber-d)}
+    .visit{font-size:13.5px;color:var(--amber-d);text-decoration:none;font-weight:600}
+  </style>
+</head>
+<body>
+
+<header id="topbar" style="display:none">
+  <div class="head-in">
+    <span class="logo"><img src="/assets/logo-small.webp" alt="" />MAMMAS <b>SAJ</b><span class="tag">ADMINPORTAL</span></span>
+    <button class="btn-o" onclick="logout()">Logga ut</button>
+  </div>
+</header>
+
+<div id="view"></div>
+
+<script>
+const $ = s => document.querySelector(s);
+let CODE = localStorage.getItem('msaj-code') || '';
+let PAGES = [];
+
+async function api(path, opts = {}) {
+  const r = await fetch(path, { ...opts, headers: { 'Content-Type': 'application/json', 'x-msaj-code': CODE, ...(opts.headers || {}) } });
+  const j = await r.json().catch(() => ({}));
+  if (r.status === 401) { logout(); throw new Error('Fel kod'); }
+  if (!r.ok) throw new Error(j.error || 'Något gick fel');
+  return j;
+}
+function esc(s){ return String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+/* ---- markdown-lite förhandsvisning (samma regler som servern) ---- */
+function renderBody(md){
+  const lines = String(md||'').replace(/\r/g,'').split('\n'); const out=[]; let list=null;
+  const flush=()=>{ if(list){ out.push('<ul>'+list.join('')+'</ul>'); list=null; } };
+  const inline=s=>esc(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\[(.+?)\]\((https?:\/\/[^\s)]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
+  for(const raw of lines){ const line=raw.trim();
+    const img=line.match(/^!\[(.*?)\]\((https?:\/\/[^\s)]+)\)$/);
+    if(img){ flush(); out.push('<figure><img src="'+esc(img[2])+'" alt="'+esc(img[1])+'" />'+(img[1]?'<figcaption>'+esc(img[1])+'</figcaption>':'')+'</figure>'); continue; }
+    if(line.startsWith('### ')){ flush(); out.push('<h3>'+inline(line.slice(4))+'</h3>'); continue; }
+    if(line.startsWith('## ')){ flush(); out.push('<h2>'+inline(line.slice(3))+'</h2>'); continue; }
+    if(line.startsWith('- ')){ (list=list||[]).push('<li>'+inline(line.slice(2))+'</li>'); continue; }
+    if(!line){ flush(); continue; }
+    flush(); out.push('<p>'+inline(line)+'</p>');
+  }
+  flush(); return out.join('');
+}
+
+/* ---- vyer ---- */
+function showLogin(msg){
+  $('#topbar').style.display='none';
+  $('#view').innerHTML = `<div class="login">
+    <img src="/assets/logo-small.webp" alt="Mammas Saj" />
+    <h1>ADMINPORTAL</h1>
+    <p>Skriv in er åtkomstkod för att hantera artiklar på mammasaj.se.</p>
+    <input id="loginCode" type="password" placeholder="Åtkomstkod" onkeydown="if(event.key==='Enter')login()" />
+    <button class="btn-p" style="width:100%" onclick="login()">Logga in</button>
+    ${msg?`<p class="status err" style="margin-top:12px">${esc(msg)}</p>`:''}
+  </div>`;
+  $('#loginCode').focus();
+}
+async function login(){
+  CODE = $('#loginCode').value.trim();
+  try{ await api('/api/msaj-admin?task=list'); localStorage.setItem('msaj-code', CODE); showList(); }
+  catch(e){ showLogin('Fel kod, försök igen.'); }
+}
+function logout(){ CODE=''; localStorage.removeItem('msaj-code'); showLogin(); }
+
+async function showList(){
+  $('#topbar').style.display='';
+  const d = await api('/api/msaj-admin?task=list');
+  PAGES = d.pages || [];
+  const rows = PAGES.map(p=>`
+    <div class="row" onclick="showEditor(${p.id})">
+      ${p.hero_image?`<img class="thumb" src="${esc(p.hero_image)}" alt="" />`:`<div class="thumb"></div>`}
+      <div class="t"><b>${esc(p.title)}</b><span>/artiklar/${esc(p.slug)} · uppdaterad ${new Date(p.updated_at).toLocaleDateString('sv-SE')}</span></div>
+      <span class="pill ${p.published?'pub':'draft'}">${p.published?'Publicerad':'Utkast'}</span>
+    </div>`).join('');
+  $('#view').innerHTML = `<main class="wrap">
+    <div class="list-head">
+      <div><h1>ARTIKLAR</h1><p>Sidorna publiceras under <a class="visit" href="/artiklar" target="_blank">mammasaj.se/artiklar</a></p></div>
+      <button class="btn-p" onclick="showEditor()">+ Ny artikel</button>
+    </div>
+    ${PAGES.length?`<div class="rows">${rows}</div>`:`<div class="empty">Inga artiklar ännu.<br/>Klicka på <b>+ Ny artikel</b> för att skapa den första.</div>`}
+  </main>`;
+}
+
+async function showEditor(id){
+  $('#topbar').style.display='';
+  let p = { title:'', slug:'', meta_desc:'', body:'', hero_image:'', published:false };
+  if(id){ const d = await api('/api/msaj-admin?task=get&id='+id); p = d.page || p; }
+  $('#view').innerHTML = `<main class="wrap">
+    <a class="backlink" href="#" onclick="showList();return false">← Alla artiklar</a>
+    <div class="ed">
+      <div class="panel">
+        <label>Rubrik</label>
+        <input id="fTitle" value="${esc(p.title)}" placeholder="T.ex. Vad är saj? Guide till libanesiskt tunnbröd" oninput="prev()" />
+        <label>Beskrivning för Google (1–2 meningar)</label>
+        <textarea id="fMeta" rows="2" placeholder="Visas i sökresultatet under rubriken." oninput="prev()">${esc(p.meta_desc)}</textarea>
+        <label>Toppbild (valfritt)</label>
+        <input id="fHeroFile" type="file" accept="image/*" onchange="uploadHero(this)" />
+        <div class="heroprev" id="heroPrev" style="${p.hero_image?'':'display:none'}">
+          <img id="heroImg" src="${esc(p.hero_image)}" alt="" />
+          <button onclick="clearHero()">Ta bort</button>
+        </div>
+        <label>Innehåll</label>
+        <div class="toolbar">
+          <button onclick="ins('\\n## Mellanrubrik\\n')">Mellanrubrik</button>
+          <button onclick="wrapSel('**')">Fetstil</button>
+          <button onclick="ins('\\n- Punkt ett\\n- Punkt två\\n')">Lista</button>
+          <button onclick="$('#fImgFile').click()">Bild i texten</button>
+          <input id="fImgFile" type="file" accept="image/*" style="display:none" onchange="uploadInline(this)" />
+        </div>
+        <textarea id="fBody" placeholder="Skriv texten här. Tom rad = nytt stycke. Använd knapparna ovan för rubriker, fetstil, listor och bilder." oninput="prev()">${esc(p.body)}</textarea>
+        <p class="hint">Allt ni skriver formateras automatiskt i sajtens design, förhandsvisningen till höger visar exakt hur det blir.</p>
+        <div class="ed-actions">
+          <button class="btn-p" id="saveBtn" onclick="save(${p.id||'null'}, false)">Spara utkast</button>
+          <button class="btn-p" id="pubBtn" style="background:var(--green)" onclick="save(${p.id||'null'}, true)">${p.published?'Uppdatera publicerad':'Spara & publicera'}</button>
+          ${p.id&&p.published?`<button class="btn-o" onclick="unpublish(${p.id})">Avpublicera</button>`:''}
+          ${p.id?`<button class="btn-danger" onclick="del(${p.id})">Ta bort</button>`:''}
+          <span class="status" id="edStatus"></span>
+        </div>
+        ${p.id&&p.published?`<p class="hint" style="margin-top:10px">Live: <a class="visit" href="/artiklar/${esc(p.slug)}" target="_blank">mammasaj.se/artiklar/${esc(p.slug)}</a></p>`:''}
+      </div>
+      <div class="panel">
+        <label>Förhandsvisning</label>
+        <div class="preview" id="pv"></div>
+      </div>
+    </div>
+  </main>`;
+  prev();
+}
+function prev(){
+  const t=$('#fTitle').value.trim(), m=$('#fMeta').value.trim(), b=$('#fBody').value;
+  $('#pv').innerHTML = `<div class="prev-title">${esc(t)||'<span style="opacity:.35">Rubriken visas här</span>'}</div>
+    <div class="prev-meta">${esc(m)||'<span style="opacity:.5">Google-beskrivningen visas här</span>'}</div>${renderBody(b)}`;
+}
+function ins(txt){ const ta=$('#fBody'); const s=ta.selectionStart; ta.value=ta.value.slice(0,s)+txt.replace(/\\n/g,'\n')+ta.value.slice(ta.selectionEnd); ta.focus(); prev(); }
+function wrapSel(w){ const ta=$('#fBody'); const s=ta.selectionStart,e=ta.selectionEnd; const sel=ta.value.slice(s,e)||'fet text'; ta.value=ta.value.slice(0,s)+w+sel+w+ta.value.slice(e); ta.focus(); prev(); }
+
+function readFile(input){ return new Promise((ok,fail)=>{ const f=input.files[0]; if(!f) return fail(); const r=new FileReader(); r.onload=()=>ok({name:f.name,dataUrl:r.result}); r.onerror=fail; r.readAsDataURL(f); }); }
+async function uploadHero(input){
+  try{ setStatus('Laddar upp bild…');
+    const f=await readFile(input);
+    const d=await api('/api/msaj-admin',{method:'POST',body:JSON.stringify({task:'upload',...f})});
+    $('#heroImg').src=d.url; $('#heroPrev').style.display=''; setStatus('Bild uppladdad','ok');
+  }catch(e){ setStatus(e.message||'Kunde inte ladda upp','err'); }
+}
+function clearHero(){ $('#heroImg').src=''; $('#heroPrev').style.display='none'; $('#fHeroFile').value=''; }
+async function uploadInline(input){
+  try{ setStatus('Laddar upp bild…');
+    const f=await readFile(input);
+    const d=await api('/api/msaj-admin',{method:'POST',body:JSON.stringify({task:'upload',...f})});
+    ins(`\n![](${d.url})\n`); setStatus('Bild inlagd','ok');
+  }catch(e){ setStatus(e.message||'Kunde inte ladda upp','err'); }
+}
+function setStatus(msg, cls){ const el=$('#edStatus'); el.textContent=msg||''; el.className='status '+(cls||''); }
+
+async function save(id, publish){
+  try{
+    setStatus('Sparar…');
+    const page = { id: id||undefined, title:$('#fTitle').value, meta_desc:$('#fMeta').value, body:$('#fBody').value,
+      hero_image: ($('#heroPrev').style.display==='none') ? '' : $('#heroImg').src };
+    const d = await api('/api/msaj-admin',{method:'POST',body:JSON.stringify({task:'save',page})});
+    if(publish){ await api('/api/msaj-admin',{method:'POST',body:JSON.stringify({task:'publish',id:d.page.id,published:true})}); }
+    setStatus(publish?'Publicerad!':'Sparad som utkast','ok');
+    setTimeout(()=>showEditor(d.page.id), 600);
+  }catch(e){ setStatus(e.message,'err'); }
+}
+async function unpublish(id){
+  try{ await api('/api/msaj-admin',{method:'POST',body:JSON.stringify({task:'publish',id,published:false})}); showEditor(id); }
+  catch(e){ setStatus(e.message,'err'); }
+}
+async function del(id){
+  if(!confirm('Ta bort artikeln permanent?')) return;
+  try{ await api('/api/msaj-admin',{method:'POST',body:JSON.stringify({task:'delete',id})}); showList(); }
+  catch(e){ setStatus(e.message,'err'); }
+}
+
+if(CODE){ api('/api/msaj-admin?task=list').then(()=>showList()).catch(()=>showLogin()); } else showLogin();
+</script>
+</body>
+</html>

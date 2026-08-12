@@ -7,7 +7,7 @@ Mammas Saj är ett familjeägt kök i Göteborg som serverar äkta smaker från 
 - Adress: Deltavägen 6, 417 30 Göteborg, Sverige
 - Stadsdel: Hisingen
 - Telefon: 031-50 85 50
-- Webbplats: https://mammassaj.se
+- Webbplats: https://www.mammasaj.se
 - Online-beställning: https://qopla.com/restaurant/mamma-saj/q7PEaEAkGe/order
 
 ## Öppettider
@@ -82,6 +82,6 @@ Köttet vi använder är halal — fråga gärna vid beställning om specifika r
 Mellanöstern-kök med fokus på saj-bröd (tunt libanesiskt-syriskt bröd bakat på stenen), kebab och shawarma, samt en bred meny med burgare, baguetter och pizza för hela familjen.
 
 ## Länkar
-- Webbplats: https://mammassaj.se
+- Webbplats: https://www.mammasaj.se
 - Beställ online (Qopla): https://qopla.com/restaurant/mamma-saj/q7PEaEAkGe/order
 - Hitta oss på karta: https://www.google.com/maps/search/?api=1&query=Deltav%C3%A4gen+6+Gothenburg
